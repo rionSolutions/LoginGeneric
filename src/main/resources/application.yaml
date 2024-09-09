@@ -1,0 +1,62 @@
+spring:
+  sql:
+    init:
+      mode: always
+  main:
+    banner-mode: console
+  application:
+    name: '@project.name@'
+  jpa:
+    database: postgresql
+    show-sql: true
+    properties:
+      jakarta:
+        persistence:
+          create-database-schemas: true
+      hibernate:
+        default_schema: "REGISTER"
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: false
+    hibernate:
+      ddl-auto: none
+  #    defer-datasource-initialization: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://181.215.134.40:5432/orion
+    username: postgres
+    password: Orionsolution@2024
+  banner:
+    charset: UTF-8
+server:
+  port: 8082
+  servlet:
+    context-path: /login
+    encoding:
+      charset: '@project.build.sourceEncoding@'
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    display-request-duration: true
+    try-it-out-enabled: true
+    defaultModelsExpandDepth: -1
+    defaultModelExpandDepth: 1
+    doc-expansion: none
+    filter: true
+    show-extensions: true
+    show-common-extensions: true
+    deep-linking: true
+    persist-authorization: true
+    syntax-highlighter: prism
+    syntax-highlighter-theme: tomorrow-night
+    validator-url: null
+logging:
+  level:
+    org.springframework.web: WARN
+    org.springframework.http: WARN
+security:
+  systemOrigin: 'LOGIN'
+  requestResource : 'http://181.215.134.40:8081/oauth/api/v1/requestAccessSession'
