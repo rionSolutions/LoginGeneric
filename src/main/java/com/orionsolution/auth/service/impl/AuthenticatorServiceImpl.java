@@ -38,7 +38,7 @@ public class AuthenticatorServiceImpl implements AuthenticatorService {
      */
     @Override
     public ResourcesPolicyDataDTO authenticate(CredentialsDTO credentials) {
-        User user = userRepository.findByEmail(credentials.username());
+        User user = userRepository.findByDocument(credentials.username());
         if (user != null && user.isValidate()) {
             BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
             if (bCryptPasswordEncoder.matches(credentials.password(), user.getPassword())) {
