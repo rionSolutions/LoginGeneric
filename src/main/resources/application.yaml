@@ -59,4 +59,4 @@ logging:
     org.springframework.http: WARN
 security:
   systemOrigin: 'LOGIN'
-  requestResource : 'http://localhost:8081/oauth/api/v1/requestAccessSession'
+  requestResource : 'http://181.215.134.40:8081/oauth/api/v1/requestAccessSession'
