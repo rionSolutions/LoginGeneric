@@ -5,7 +5,8 @@ public record ResourcesPolicyDataDTO(
         String surname,
         String email,
         String cellphone,
-        String document
+        String document,
+        AuthorizationDTO auth
 ){}
 
 
