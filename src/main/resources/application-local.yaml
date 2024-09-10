@@ -30,7 +30,7 @@ spring:
 server:
   port: 8082
   servlet:
-    context-path: /login
+    context-path: /auth
     encoding:
       charset: '@project.build.sourceEncoding@'
 springdoc:

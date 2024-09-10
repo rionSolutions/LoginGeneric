@@ -30,7 +30,7 @@ spring:
 server:
   port: 8082
   servlet:
-    context-path: /login
+    context-path: /auth
     encoding:
       charset: '@project.build.sourceEncoding@'
 springdoc:
@@ -59,4 +59,4 @@ logging:
     org.springframework.http: WARN
 security:
   systemOrigin: 'LOGIN'
-  requestResource : 'http://181.215.134.40:8081/oauth/api/v1/requestAccessSession'
+  requestResource : 'http://localhost:8081/oauth/api/v1/requestAccessSession'
