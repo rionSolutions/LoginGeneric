@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.orionsolution</groupId>
-    <artifactId>auth</artifactId>
+    <artifactId>auth-login</artifactId>
     <version>0.0.2</version>
     <name>AuthLogin</name>
     <description>Responsable for provide Login</description>
