@@ -31,6 +31,8 @@ public class DataBaseConfig {
     public DataSource dataSource() throws Exception {
         try {
 
+            log.warn("folders : [{}] , [{}] " , password , username);
+
             String user = null;
             String pass = null;
 
