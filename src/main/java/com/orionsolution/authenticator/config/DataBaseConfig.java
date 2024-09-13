@@ -40,6 +40,7 @@ public class DataBaseConfig {
             File passFile = new File(password.concat(".txt"));
 
             if (userFile.exists() && passFile.exists()) {
+                log.warn("CREDENTIALS FOUND");
                 user = Files.readString(userFile.toPath());
                 pass = Files.readString(passFile.toPath());
             }
