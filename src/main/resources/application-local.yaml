@@ -23,8 +23,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: admin
+    username: src/main/resources/etc/credentials/user
+    password: src/main/resources/etc/credentials/pass
   banner:
     charset: UTF-8
 server:
@@ -60,4 +60,4 @@ logging:
     org.springframework.security: DEBUG
 security:
   systemOrigin: 'LOGIN'
-  requestResource : 'http://localhost:8081/oauth/api/v1/requestAccessSession'
+  requestResource : 'http://181.215.134.40:8081/oauth/api/v1/requestAccessSession'

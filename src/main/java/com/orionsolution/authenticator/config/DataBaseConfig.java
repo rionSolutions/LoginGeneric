@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 @Configuration
 @Slf4j
@@ -27,11 +30,23 @@ public class DataBaseConfig {
     @Bean
     public DataSource dataSource() throws Exception {
         try {
+
+            String user = null;
+            String pass = null;
+
+            File userFile = new File(username.concat(".txt"));
+            File passFile = new File(password.concat(".txt"));
+
+            if (userFile.exists() && passFile.exists()) {
+                user = Files.readString(userFile.toPath());
+                pass = Files.readString(passFile.toPath());
+            }
+
             DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
             dataSourceBuilder.driverClassName(driverName);
             dataSourceBuilder.url(url);
-            dataSourceBuilder.username(username);
-            dataSourceBuilder.password(password);
+            dataSourceBuilder.username(user);
+            dataSourceBuilder.password(pass);
             return dataSourceBuilder.build();
         } catch (Exception ex) {
             log.error(ERROR);
