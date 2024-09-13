@@ -1,6 +1,6 @@
-package com.orionsolution.auth.repository;
+package com.orionsolution.authenticator.repository;
 
-import com.orionsolution.auth.entity.User;
+import com.orionsolution.authenticator.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

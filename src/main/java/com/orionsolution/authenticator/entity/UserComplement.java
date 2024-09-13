@@ -1,4 +1,4 @@
-package com.orionsolution.auth.entity;
+package com.orionsolution.authenticator.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

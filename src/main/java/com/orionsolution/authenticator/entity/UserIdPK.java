@@ -1,4 +1,4 @@
-package com.orionsolution.auth.entity;
+package com.orionsolution.authenticator.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

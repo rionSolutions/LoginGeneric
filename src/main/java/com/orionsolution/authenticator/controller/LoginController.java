@@ -1,8 +1,8 @@
-package com.orionsolution.auth.controller;
+package com.orionsolution.authenticator.controller;
 
-import com.orionsolution.auth.model.CredentialsDTO;
-import com.orionsolution.auth.model.ResourcesPolicyDataDTO;
-import com.orionsolution.auth.service.AuthenticatorService;
+import com.orionsolution.authenticator.model.CredentialsDTO;
+import com.orionsolution.authenticator.model.ResourcesPolicyDataDTO;
+import com.orionsolution.authenticator.service.AuthenticatorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

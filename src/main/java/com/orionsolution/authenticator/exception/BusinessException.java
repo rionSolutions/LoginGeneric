@@ -1,4 +1,4 @@
-package com.orionsolution.auth.exception;
+package com.orionsolution.authenticator.exception;
 
 
 import lombok.Getter;

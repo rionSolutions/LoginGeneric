@@ -1,13 +1,13 @@
-package com.orionsolution.auth.service.impl;
+package com.orionsolution.authenticator.service.impl;
 
-import com.orionsolution.auth.entity.User;
-import com.orionsolution.auth.exception.BusinessException;
-import com.orionsolution.auth.model.AuthorizationDTO;
-import com.orionsolution.auth.model.CredentialsDTO;
-import com.orionsolution.auth.model.ResourcesPolicyDataDTO;
-import com.orionsolution.auth.repository.UserRepository;
-import com.orionsolution.auth.service.AuthenticatorService;
-import com.orionsolution.auth.utility.ApplicationKeyUtility;
+import com.orionsolution.authenticator.entity.User;
+import com.orionsolution.authenticator.exception.BusinessException;
+import com.orionsolution.authenticator.model.AuthorizationDTO;
+import com.orionsolution.authenticator.model.CredentialsDTO;
+import com.orionsolution.authenticator.model.ResourcesPolicyDataDTO;
+import com.orionsolution.authenticator.repository.UserRepository;
+import com.orionsolution.authenticator.service.AuthenticatorService;
+import com.orionsolution.authenticator.utility.ApplicationKeyUtility;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.orionsolution.auth.config;
+package com.orionsolution.authenticator.config;
 
-import com.orionsolution.auth.model.AuthorizationDTO;
+import com.orionsolution.authenticator.model.AuthorizationDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -1,8 +1,8 @@
-package com.orionsolution.auth.config;
+package com.orionsolution.authenticator.config;
 
-import com.orionsolution.auth.exception.BusinessException;
-import com.orionsolution.auth.model.AuthorizationDTO;
-import com.orionsolution.auth.utility.ApplicationKeyUtility;
+import com.orionsolution.authenticator.exception.BusinessException;
+import com.orionsolution.authenticator.model.AuthorizationDTO;
+import com.orionsolution.authenticator.utility.ApplicationKeyUtility;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.context.properties.ConfigurationProperties;

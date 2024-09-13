@@ -1,4 +1,4 @@
-package com.orionsolution.auth.utility;
+package com.orionsolution.authenticator.utility;
 
 import lombok.Getter;
 

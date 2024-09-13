@@ -1,6 +1,6 @@
-package com.orionsolution.auth.entity;
+package com.orionsolution.authenticator.entity;
 
-import com.orionsolution.auth.model.UserRole;
+import com.orionsolution.authenticator.model.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
