@@ -16,14 +16,14 @@ jobs:
       - name: "Baixar repo"
         uses: actions/checkout@v4
 
-      - name: "Copiar arquivos para VPS"
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host:  ${{ secrets.HOST }}
-          username: "root"
-          key: ${{ secrets.PASS }}
-          source: "."
-          target: "/projects/LoginGeneric"
+#      - name: "Copiar arquivos para VPS"
+#        uses: appleboy/scp-action@v0.1.7
+#        with:
+#          host:  ${{ secrets.HOST }}
+#          username: "root"
+#          key: ${{ secrets.PASS }}
+#          source: "."
+#          target: "/projects/LoginGeneric"
 
       - name: "Build da aplicação"
         uses: appleboy/ssh-action@v1.0.3
@@ -33,5 +33,6 @@ jobs:
           key: ${{ secrets.PASS }}
           script: |
             cd /
-            cd projects/LoginGeneric
+            cd projects/LoginGeneric &
+            git pull &  
             docker compose up --build -d
