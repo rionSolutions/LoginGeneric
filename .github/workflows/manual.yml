@@ -8,6 +8,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: "root"
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: ls -all
+
+
       - name: "Baixar o código"
         uses: actions/checkout@v4
 
