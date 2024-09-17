@@ -1,9 +1,4 @@
-# This is a basic workflow that is manually triggered
-
 name: Deploy para VPS
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   push:
     branches: 
@@ -13,7 +8,7 @@ jobs:
     runs-on: ubuntu:latest
 
     steps:
-      - name: "Baixar repo"
+      - name: "Baixar o código"
         uses: actions/checkout@v4
 
       - name: "Copiar arquivos para VPS"
