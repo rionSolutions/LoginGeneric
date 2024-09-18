@@ -1,4 +1,4 @@
-name: Deploy para VPS
+name: Deploy
 on:
   push:
     branches: 
@@ -6,15 +6,14 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: repo checkout 
-        uses: action/checkout@v1
-      - name: deployment 
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
-          SOURCE: "."
-          REMOTE_HOST: ${{secrets.HOST}}
-          REMOTE_USER: "root"
-          REMOTE_PORT: "22"
+     - name: Checkout code
+       uses: actions/checkout@v2
+    
+     - name: SSH and Deploy
+       uses: appleboy/ssh-action@main
+       with:
+            host: 181.215.134.40
+            username: root
+            key: ${{ secrets.PRIVATE_KEY }}
+            script: | ls -la
