@@ -17,4 +17,5 @@ jobs:
          username: root
          key: ${{ secrets.PRIVATE_KEY }}
          script: | 
-                  ls -la 
+               cd / & 
+               ls -la 
