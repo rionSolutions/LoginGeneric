@@ -40,4 +40,5 @@ jobs:
                echo "Deployment completed"
                git reset --hard
                echo "Git restored"
+               docker logs $(docker ps -aq --filter "name=logingeneric-server")
 
