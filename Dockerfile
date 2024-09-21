@@ -17,8 +17,11 @@ WORKDIR /build
 COPY --chmod=0755 mvnw mvnw
 COPY .mvn/ .mvn/
 
+# Criar diretório para as credenciais
+RUN mkdir -p /build/etc/credentials
+
 # Copiar arquivos dos diretórios resources e etc/credentials
-COPY resources/etc/credentials/ /build/etc/credentials/
+COPY src/main/resources/etc/credentials/ /build/etc/credentials/
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.m2 so that subsequent builds don't have to
