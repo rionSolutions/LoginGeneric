@@ -34,4 +34,5 @@ jobs:
                docker compose up --build -d
                echo "Deployment completed"
                git reset --hard
+               echo "Git restored"
 
