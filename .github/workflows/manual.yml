@@ -42,4 +42,6 @@ jobs:
             cd /
             cd projects/LoginGeneric &
             git pull &  
-            docker compose up --build -d
+            cp  ~/credentials/data-base/user.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ &
+            cp  ~/credentials/data-base/pass.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ &
+            docker compose up --build -d 
