@@ -11,17 +11,20 @@
 # Create a stage for resolving and downloading dependencies.
 FROM eclipse-temurin:17-jdk-jammy as deps
 
+WORKDIR /app
+
+# Criar diretório para as credenciais
+RUN mkdir -p /app/credentials
+
+# Copiar arquivos dos diretórios resources e etc/credentials
+COPY /src/main/resources/credentials/ /app/credentials/
+
+
 WORKDIR /build
 
 # Copy the mvnw wrapper with executable permissions.
 COPY --chmod=0755 mvnw mvnw
 COPY .mvn/ .mvn/
-
-# Criar diretório para as credenciais
-RUN mkdir -p /build/credentials
-
-# Copiar arquivos dos diretórios resources e etc/credentials
-COPY /src/main/resources/credentials/ /build/credentials/
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.m2 so that subsequent builds don't have to
