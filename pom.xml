@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.orionsolution</groupId>
     <artifactId>authenticator</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
     <name>authenticator-generic</name>
     <description>Responsable for provide Login</description>
     <url/>
