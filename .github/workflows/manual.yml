@@ -1,4 +1,4 @@
-name: Deploy para VPS
+name: Deploy
 on:
   push:
     branches: 
@@ -6,42 +6,20 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-
     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
 
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST }}
-          username: "root"
-          key: ${{ secrets.PRIVATE_KEY }}
-          port: 22
-          script_stop: true
-          script: ls -all
-
-
-      - name: "Baixar o código"
-        uses: actions/checkout@v4
-
-      - name: "Copiar arquivos para VPS"
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host:  ${{ secrets.HOST }}
-          username: "root"
-          key: ${{ secrets.PRIVATE_KEY }}
-          source: "."
-          target: "/projects/LoginGeneric"
-
-      - name: "Build da aplicação"
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host:  ${{ secrets.HOST }}
-          username: "root"
-          key: ${{ secrets.PRIVATE_KEY }}
-          script: |
-            cd /
-            cd projects/LoginGeneric &
-            git pull &  
-            cp  ~/credentials/data-base/user.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ &
-            cp  ~/credentials/data-base/pass.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ &
-            docker compose up --build -d 
+     - name: SSH and Deploy
+       uses: appleboy/ssh-action@master
+       with:
+         host: 181.215.134.40
+         username: root
+         key: ${{ secrets.PRIVATE_KEY }}
+         script: | 
+               cd ~/projects/LoginGeneric 
+               ls -la 
+               git pull
+               cp  ~/credentials/data-base/user.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ 
+               cp  ~/credentials/data-base/pass.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ 
+               docker compose up --build -d
