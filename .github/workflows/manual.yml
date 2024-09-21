@@ -17,13 +17,17 @@ jobs:
          username: root
          key: ${{ secrets.PRIVATE_KEY }}
          script: | 
+               echo "Add SSH key to agent"
+               ssh-add ~/.ssh/github_hunterkoon
                cd ~/projects/LoginGeneric 
                ls -la 
-               ssh-add ~/.ssh/github_hunterkoon
+               echo "Pulling the latest code from the repository"
                git pull
                ls -la
+               echo "Copying the credentials to the project"
                cp  ~/credentials/data-base/user.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ 
                cp  ~/credentials/data-base/pass.txt ~/projects/LoginGeneric/src/main/resources/etc/credentials/ 
                docker compose up --build -d
+               echo "Deployment completed"
                git reset --hard
 
