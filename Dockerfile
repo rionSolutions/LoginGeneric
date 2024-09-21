@@ -14,10 +14,10 @@ FROM eclipse-temurin:17-jdk-jammy as deps
 WORKDIR /app
 
 # Criar diretório para as credenciais
-RUN mkdir -p /app/credentials
+RUN mkdir -p /app
 
 # Copiar arquivos dos diretórios resources e etc/credentials
-COPY /src/main/resources/credentials/ /app/credentials/
+COPY ./src/main/resources/credentials/ /app/credentials/
 
 
 WORKDIR /build
