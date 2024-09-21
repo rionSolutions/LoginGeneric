@@ -20,7 +20,7 @@ COPY .mvn/ .mvn/
 # Criar diretório para as credenciais
 RUN mkdir -p /build/etc/credentials
 
-RUN pwd
+RUN echo "PWWWWWD" pwd
 
 # Copiar arquivos dos diretórios resources e etc/credentials
 COPY ./etc/credentials/ /build/etc/credentials/
