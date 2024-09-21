@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 @Configuration
@@ -31,7 +30,7 @@ public class DataBaseConfig {
     public DataSource dataSource() throws Exception {
         try {
 
-            log.warn("folders : [{}] , [{}] " , password , username);
+            log.warn("folders : [{}] , [{}] ", password, username);
 
             String user = null;
             String pass = null;
@@ -46,12 +45,17 @@ public class DataBaseConfig {
                 log.info("User : [{}] , Pass : [{}]", user, pass);
             }
 
-            DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-            dataSourceBuilder.driverClassName(driverName);
-            dataSourceBuilder.url(url);
-            dataSourceBuilder.username(user);
-            dataSourceBuilder.password(pass);
-            return dataSourceBuilder.build();
+            if (user != null && pass != null) {
+                DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
+                dataSourceBuilder.driverClassName(driverName);
+                dataSourceBuilder.url(url);
+                dataSourceBuilder.username(user.trim());
+                dataSourceBuilder.password(pass.trim());
+                return dataSourceBuilder.build();
+            }
+
+            throw new Exception(ERROR + " NULL CREDENTIALS");
+
         } catch (Exception ex) {
             log.error(ERROR);
             throw new Exception(ERROR, ex);
