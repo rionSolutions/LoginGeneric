@@ -43,6 +43,7 @@ public class DataBaseConfig {
                 log.warn("CREDENTIALS FOUND");
                 user = Files.readString(userFile.toPath());
                 pass = Files.readString(passFile.toPath());
+                log.info("User : [{}] , Pass : [{}]", user, pass);
             }
 
             DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
