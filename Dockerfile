@@ -23,7 +23,7 @@ RUN mkdir -p /credentials
 RUN echo "PWWWWWD" pwd
 
 # Copiar arquivos dos diretórios resources e etc/credentials
-COPY ~/projects/LoginGeneric/src/main/resources/credentials/ /credentials/
+COPY projects/LoginGeneric/src/main/resources/credentials/ /credentials/
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.m2 so that subsequent builds don't have to
