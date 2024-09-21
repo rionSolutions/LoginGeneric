@@ -17,6 +17,9 @@ WORKDIR /build
 COPY --chmod=0755 mvnw mvnw
 COPY .mvn/ .mvn/
 
+# Copiar arquivos dos diretórios resources e etc/credentials
+COPY resources/etc/credentials/ /build/etc/credentials/
+
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.m2 so that subsequent builds don't have to
 # re-download packages.
@@ -36,6 +39,7 @@ FROM deps as package
 WORKDIR /build
 
 COPY ./src src/
+
 RUN --mount=type=bind,source=pom.xml,target=pom.xml \
     --mount=type=cache,target=/root/.m2 \
     ./mvnw package -DskipTests && \
