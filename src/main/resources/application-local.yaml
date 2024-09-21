@@ -23,8 +23,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
-    username: src/main/resources/etc/credentials/user
-    password: src/main/resources/etc/credentials/pass
+    username: src/main/resources/credentials/user
+    password: src/main/resources/credentials/pass
   banner:
     charset: UTF-8
 server:
